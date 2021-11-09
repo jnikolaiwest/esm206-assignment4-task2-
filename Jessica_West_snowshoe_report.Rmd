@@ -17,6 +17,8 @@ library(broom)
 library(effsize)
 library(kableExtra)
 library(equatiomatic)
+library(devtools)
+library(calecopal)
 ```
 
 ```{r}
@@ -79,10 +81,10 @@ juv_weight_genders <- bonanza_hares_juv_genders %>%
   group_by(sex, grid)
 
 ggplot(data = juv_weight_genders, aes(x = sex, y = weight, fill = sex)) +
-  scale_fill_manual(values = c("lightpink2", "lightblue2", "darkseagreen2")) +
+  scale_fill_manual(values = cal_palette("oak")) +
   geom_boxplot(outlier.color = "black") +
   geom_beeswarm(shape = 1, alpha = 0.75, aes(color = sex)) +
-  scale_color_manual(values = c("gray44", "gray44", "gray44")) +
+  scale_color_manual(values = c("black", "black", "black")) +
   facet_wrap(~grid) +
   labs(x = "Hare Gender",
        y = "Weight (g)",
